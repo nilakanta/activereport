@@ -1,5 +1,5 @@
 class OdeskController < ApplicationController
-  before_filter :odesk_required
+  before_filter :authenticate_user!, :odesk_required
 
   def import
     unless session[:odesk_api_token]
