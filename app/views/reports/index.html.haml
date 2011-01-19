@@ -1,0 +1,34 @@
+%h1
+  Month Till Date - $ #{@month_till_date}
+%br
+%h1
+  Week Till Date - $ #{@week_till_date}
+%br
+%h2 Quarters
+%table
+  %tr
+    %th Quarter
+    %th Earnings($)
+  - @financial_quarters.each do |name, value|
+    %tr
+      %td{:style=>"text-align: center"} #{name}
+      %td{:style=>"text-align: right"} #{value}
+  %tr
+    %td Total
+    %td{:style=>"text-align: right"} #{@financial_quarters.inject(0) {|sum, val| sum += val.second; sum}}
+%br/
+%h2 Individuals
+%table
+  %tr
+    %th Individual
+    %th Hours
+    %th Earnings($)
+  - @by_individuals.each do |ind|
+    %tr
+      %td{:style=>"text-align: center"} #{ind["_id"]}
+      %td{:style=>"text-align: right"} #{ind["value"]["hours"].ceil}
+      %td{:style=>"text-align: right"} #{ind["value"]["earnings"].ceil}
+  %tr
+    %td Total
+    %td{:style=>"text-align: right"} #{@by_individuals.inject(0){|sum, ind| sum += ind["value"]["hours"]; sum}.ceil}
+    %td{:style=>"text-align: right"} #{@by_individuals.inject(0){|sum, ind| sum += ind["value"]["earnings"]; sum}.ceil}

@@ -5,7 +5,10 @@ Activereport::Application.routes.draw do
 
   devise_for :users
   resources :users, :only => :show
-
+  
+  resources :reports, :only => :index
+  
+  match 'odesk/import' => 'odesk#import'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

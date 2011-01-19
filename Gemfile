@@ -29,7 +29,6 @@ gem 'rails', '3.0.3'
 # group :development, :test do
 #   gem 'webrat'
 # end
-gem "heroku", "1.15.1", :group => :development
 
 # Bundle gems needed for Haml
 gem "haml", "3.0.25"
@@ -44,3 +43,11 @@ gem "bson_ext", "1.1.5"
 
 # Bundle gem needed for Devise
 gem "devise", "1.1.5"
+
+gem "ruby_desk", "0.9.1"
+
+group :development do
+  gem "heroku", "1.15.1"
+  gem "wirble", '0.1.3'
+  # gem 'ruby-debug19'
+end 
