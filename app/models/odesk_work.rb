@@ -6,5 +6,4 @@ class OdeskWork
   field :hours, :type => Float, :default => 0.0
   field :earnings, :type => Float, :default => 0.0
   
-  
 end

@@ -1,7 +1,9 @@
-%h1
+%h2
+  ODesk Last worked on - #{OdeskWork.max(:worked_on).to_s}
+%h2
   Month Till Date - $ #{@month_till_date}
 %br
-%h1
+%h2
   Week Till Date - $ #{@week_till_date}
 %br
 %h2 Quarters
