@@ -7,11 +7,8 @@ class OdeskController < ApplicationController
       session[:odesk_api_token] = @odesk_connector.get_token
       session[:odesk_auth_user] = @odesk_connector.auth_user
     end
-    @time_reports = []
-    odesk_selector = {:select => "worked_on, provider_id, sum(hours), sum(earnings)", :conditions=>{:agency_id=>"activesphere"}}
-    RubyDesk::TimeReport.find(@odesk_connector, odesk_selector).each do |work|
-      @time_reports << OdeskWork.create!(:worked_on=> work["worked_on"], :provider_id=>work["provider_id"], :hours=>work["hours"], :earnings=>work["earnings"])
-    end
+    @last_job = ImportJob.first
+    @time_reports = ImportJob.run @odesk_connector
   end
 
   protected

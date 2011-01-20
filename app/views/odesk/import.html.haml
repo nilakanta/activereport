@@ -1,4 +1,7 @@
 %br/
-- @time_reports.each_with_index do |row, index|
-  #{index}. #{row.to_s}
-  %br/
+Last imported on #{@last_job.last_import_date.to_s if @last_job}
+%br/
+Total #{@time_reports.count} reports imported!
+%br
+Odesk count - #{OdeskWork.count}
+%br/
