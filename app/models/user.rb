@@ -8,7 +8,7 @@ class User
   field :name
   validates_presence_of :name
   validates_uniqueness_of :name, :email, :case_sensitive => false
-  validates_format_of :email, :with => /@activesphere.com/
+  validates_format_of :email, :with => /@#{COMPANY_NAME}.com/, :message => "should belong to #{COMPANY_NAME}.com"
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
 end
 

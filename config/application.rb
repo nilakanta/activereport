@@ -62,3 +62,5 @@ module Activereport
     config.filter_parameters += [:password, :password_confirmation]
   end
 end
+
+COMPANY_NAME=ENV["COMPANY_NAME"]
